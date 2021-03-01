@@ -1364,6 +1364,8 @@ GameObject:
   - component: {fileID: 996514220}
   - component: {fileID: 996514219}
   - component: {fileID: 996514218}
+  - component: {fileID: 996514221}
+  - component: {fileID: 996514222}
   m_Layer: 5
   m_Name: Slot1Player
   m_TagString: Untagged
@@ -1473,6 +1475,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996514216}
   m_CullTransparentMesh: 0
+--- !u!114 &996514221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996514216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d0e30b61d0f834aa19977e341149f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &996514222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996514216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b65aaa4118c5424b85015e11fb14617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 24e06f4b75f2a174890f992e2a799edc, type: 2}
+  - {fileID: 11400000, guid: d04684c634647904db1d706650df003e, type: 2}
+  - {fileID: 11400000, guid: 350453ec25ae5744a9dab6978148e602, type: 2}
+  - {fileID: 11400000, guid: 6e95d8416fe55964489a286557eb4a2e, type: 2}
+  icon: {fileID: 903542839}
 --- !u!1 &1002243566
 GameObject:
   m_ObjectHideFlags: 0

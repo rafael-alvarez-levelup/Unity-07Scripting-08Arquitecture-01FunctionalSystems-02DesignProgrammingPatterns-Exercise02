@@ -1,0 +1,31 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class SlotBehaviour : MonoBehaviour
+{
+    public ActionData CurrentAction => currentAction;
+
+    [SerializeField] private ActionData[] actions;
+    [SerializeField] private Image icon;
+
+    private ActionData currentAction;
+    private int index;
+
+    private void Awake()
+    {
+        currentAction = actions[index];
+        UpdateIcon();
+    }
+
+    public void ChangeAction()
+    {
+        index = (index + 1) % actions.Length;
+        currentAction = actions[index];
+        UpdateIcon();
+    }
+
+    private void UpdateIcon()
+    {
+        icon.sprite = currentAction.Sprite;
+    }
+}

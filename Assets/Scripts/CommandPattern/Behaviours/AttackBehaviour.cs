@@ -4,10 +4,8 @@ public class AttackBehaviour : MonoBehaviour, IAttack
 {
     [SerializeField] private int damage = 10;
 
-    public void Attack(IDamageable target)
+    public void Attack()
     {
-        print($"{gameObject} attacks {target}!");
-
-        target.TakeDamage(damage);
+        print($"{gameObject} attacks for {damage} damage!");
     }
 }
