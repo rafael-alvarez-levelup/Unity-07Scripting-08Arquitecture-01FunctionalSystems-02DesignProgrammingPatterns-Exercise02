@@ -4,18 +4,18 @@ using UnityEngine.UI;
 public class SlotController : MonoBehaviour
 {
     private Button button;
-    private SlotBehaviour slotBehaviour;
+    private IChangeAction actionChanger;
 
     private void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(() => OnClick());
 
-        slotBehaviour = GetComponent<SlotBehaviour>();
+        actionChanger = GetComponent<IChangeAction>();
     }
 
     private void OnClick()
     {
-        slotBehaviour.ChangeAction();
+        actionChanger.ChangeAction();
     }
 }

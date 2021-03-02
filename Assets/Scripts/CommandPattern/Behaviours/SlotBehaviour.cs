@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SlotBehaviour : MonoBehaviour
+// TODO
+
+public class SlotBehaviour : MonoBehaviour, IChangeAction
 {
     public ActionData CurrentAction => currentAction;
 
