@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO
-
 public class EndController : MonoBehaviour
 {
     private Button button;
-    private IProcessCommands playerProcessor;
-    // private IProcessCommands enemyProcessor;
     private IExecuteCommands commandManager;
+
+    // TODO: Change to IProcessCommands
+    private PlayerProcessor playerProcessor;
+    private EnemyProcessor enemyProcessor;
 
     private void Awake()
     {
@@ -16,15 +16,18 @@ public class EndController : MonoBehaviour
         button.onClick.AddListener(() => ResolveTurn());
 
         playerProcessor = FindObjectOfType<PlayerProcessor>();
-        // enemyProcessor = FindObjectOfType<EnemyProcessor>();
+        enemyProcessor = FindObjectOfType<EnemyProcessor>();
         commandManager = FindObjectOfType<CommandManager>();
     }
 
     private void ResolveTurn()
     {
         playerProcessor.ProcessCommands();
-        // enemyProcessor.ProcessCommands();
+        enemyProcessor.ProcessCommands();
 
         commandManager.ExecuteCommands();
+
+        playerProcessor.ResetActions();
+        enemyProcessor.ResetActions();
     }
 }

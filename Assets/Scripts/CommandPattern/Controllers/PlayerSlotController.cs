@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlotController : MonoBehaviour
+public class PlayerSlotController : MonoBehaviour
 {
     private Button button;
     private IChangeAction actionChanger;

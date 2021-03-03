@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class PlayerProcessor : ProcessorBase
+public class EnemyProcessor : ProcessorBase
 {
-    [SerializeField] private PlayerSlotBehaviour[] slots;
+    [SerializeField] private EnemySlotBehaviour[] slots;
 
-    private IProcessPlayerCommand commandProcessor;
+    private IProcessEnemyCommand commandProcessor;
 
     protected override void Awake()
     {
@@ -17,6 +17,9 @@ public class PlayerProcessor : ProcessorBase
     {
         foreach (var slot in slots)
         {
+            // TODO: Needs a better place to be called.
+            slot.ChangeAction();
+
             ICommand command = slot.CurrentAction.Action switch
             {
                 Action.Default => new DefaultCommand(defaulter),
@@ -25,7 +28,7 @@ public class PlayerProcessor : ProcessorBase
                 Action.Heal => new HealCommand(healer),
                 _ => null,
             };
-            commandProcessor.ProcessPlayerCommand(command);
+            commandProcessor.ProcessEnemyCommand(command);
         }
     }
 

@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-// TODO
+//TODO: Refactor
 
-public class SlotBehaviour : MonoBehaviour, IChangeAction
+public abstract class SlotBehaviourBase : MonoBehaviour, IChangeAction
 {
     public ActionData CurrentAction => currentAction;
 
-    [SerializeField] private ActionData[] actions;
+    [SerializeField] protected ActionData[] actions;
+
     [SerializeField] private Image icon;
 
+    protected int index;
+
     private ActionData currentAction;
-    private int index;
 
     private void Awake()
     {
@@ -19,12 +21,21 @@ public class SlotBehaviour : MonoBehaviour, IChangeAction
         UpdateIcon();
     }
 
-    public void ChangeAction()
+    public virtual void ChangeAction()
     {
-        index = (index + 1) % actions.Length;
+        ChangeIndex();
         currentAction = actions[index];
         UpdateIcon();
     }
+
+    public virtual void ResetAction()
+    {
+        index = 0;
+        currentAction = actions[index];
+        UpdateIcon();
+    }
+
+    protected abstract void ChangeIndex();
 
     private void UpdateIcon()
     {
