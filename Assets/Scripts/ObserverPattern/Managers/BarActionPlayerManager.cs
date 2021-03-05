@@ -17,7 +17,7 @@ public class BarActionPlayerManager : MonoBehaviour, IObserver<int>
         {
             slot.AddObserver(this);
         }
-        
+
     }
 
     private void OnDisable()
